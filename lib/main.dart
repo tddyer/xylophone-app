@@ -24,9 +24,7 @@ class XylophoneApp extends StatelessWidget {
               Expanded(
                 child: RaisedButton(
                   color: Colors.blue[900 - 100 * i],
-                  onPressed: () {
-                    playSound(i);
-                  },
+                  onPressed: () => playSound(i),
                 ),
               ),
             ],
