@@ -5,21 +5,27 @@ void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
 
-  static AudioCache player = new AudioCache();
+  void playSound(int i) {
+    final player = AudioCache();
+    player.play('note$i.wav');
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-          child: Center(
-            child: RaisedButton(
-              onPressed: () {
-                final player = AudioCache();
-                player.play('note1.wav');
-              },
-              child: Text('Play Audio'),
-            ),
+          child: Column(
+            children: <Widget>[
+              // this for loop generates the buttons for each sound wave
+              for (var i in [1, 2, 3, 4, 5, 6, 7])
+                RaisedButton(
+                color: Colors.blue[900 - 100 * i],
+                onPressed: () {
+                  playSound(i);
+                },
+              ),
+            ],
           ),
         ),
       ),
