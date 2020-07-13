@@ -14,16 +14,20 @@ class XylophoneApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.white,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               // this for loop generates the buttons for each sound wave
               for (var i in [1, 2, 3, 4, 5, 6, 7])
-                RaisedButton(
-                color: Colors.blue[900 - 100 * i],
-                onPressed: () {
-                  playSound(i);
-                },
+              Expanded(
+                child: RaisedButton(
+                  color: Colors.blue[900 - 100 * i],
+                  onPressed: () {
+                    playSound(i);
+                  },
+                ),
               ),
             ],
           ),
